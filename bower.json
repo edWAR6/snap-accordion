@@ -1,0 +1,31 @@
+{
+  "name": "snap-accordion",
+  "description": "accordion web component for ionic and the web.",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "Snap",
+    "Accordion",
+    "ionic",
+    "cordova"
+  ],
+  "authors": [
+    "Eduardo Oviedo Blanco"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  }
+}

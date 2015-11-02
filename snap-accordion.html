@@ -1,0 +1,90 @@
+<link rel='import' href='../polymer/polymer.html'>
+
+<dom-module id="snap-accordion">
+	<template>    
+    <content></content>
+  </template>
+  <script>
+    (function() {
+      Polymer({
+        is: 'snap-playlist',
+        properties: {
+
+        }
+      });
+    })();
+  </script>
+</dom-module>
+
+
+
+
+<dom-module id="accordion-head">
+  <script>
+    Polymer({
+      is: 'accordion-head',
+      extends: 'div',          
+      ready: function() {        
+      	this.addEventListener('click', this.click_event);
+      },
+      click_event: function() {
+      	this.async(function () {
+      		this.nextElementSibling.toggle();      	
+      	});
+      }
+    });
+  </script>
+</dom-module>
+
+
+
+
+<dom-module id="accordion-body">
+	<style type="text/css">
+		:host{
+			/*transition: 0.09s all linear;*/
+			max-height: 0;
+    	overflow: hidden;
+    	-webkit-transition: max-height 0.8s ease-out;
+			-moz-transition: max-height 0.8s ease-out;
+			transition: max-height 0.8s ease-out;
+		}
+		:host.extended{
+			height: auto;
+			max-height: 300px;
+			-webkit-transition: max-height 0.8s ease-in;
+			-moz-transition: max-height 0.8s ease-in;
+			transition: max-height 0.8s ease-in;
+		}
+	</style>
+	<template>		
+		<content></content>
+	</template>
+  <script>
+    Polymer({
+      is: 'accordion-body',
+      properties: {
+      	extended: {
+          type: Boolean,
+          value: false,
+          observer: 'watchExtended'
+        }
+      },
+      extends: 'div',          
+      watchExtended: function(newValue, oldValue) {
+      	if (newValue) {
+      		this.classList.add('extended');
+      	}else{
+      		this.classList.remove('extended');
+      	}
+      },
+      toggle: function() { 
+      	if (this.extended) {
+      		this.extended = false;
+      	}else{
+      		this.extended = true;
+      	};     	
+      }
+    });
+  </script>
+</dom-module>
