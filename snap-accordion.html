@@ -41,19 +41,25 @@
 
 <dom-module id="accordion-body">
 	<style type="text/css">  
-		:host{
-      /*visibility: hidden;
-      opacity: 0;*/
-      /*transition: visibility 0s, opacity 0.5s linear;*/
-			transition: 2.09s all linear;
-			/*max-height: 0;
-    	overflow: hidden;
-    	-webkit-transition: max-height 0.8s ease-out;
-			-moz-transition: max-height 0.8s ease-out;
-			transition: max-height 0.8s ease-out;*/
-		}		
+    :host{
+      /*transition: 2.09s all linear;*/
+      transition: all 0.2s ease 0.2s;
+      opacity:1;
+      /*height: auto;*/
+      max-height: 500px;
+      display: block !important;      
+    }		
+    :host[hidden]{      
+      /*transition: all 1s ease 1s;*/
+      opacity:0;      
+      max-height: 0;
+      /*padding: 0;*/
+      /*overflow: hidden;*/
+    }
 	</style>
-	
+	<template>
+    <content></content>
+  </template>
   <script>
     Polymer({
       is: 'accordion-body',
