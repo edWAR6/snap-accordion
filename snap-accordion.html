@@ -7,7 +7,7 @@
   <script>
     (function() {
       Polymer({
-        is: 'snap-playlist',
+        is: 'snap-accordion',
         properties: {
 
         }
@@ -40,26 +40,20 @@
 
 
 <dom-module id="accordion-body">
-	<style type="text/css">
+	<style type="text/css">  
 		:host{
-			/*transition: 0.09s all linear;*/
-			max-height: 0;
+      /*visibility: hidden;
+      opacity: 0;*/
+      /*transition: visibility 0s, opacity 0.5s linear;*/
+			transition: 2.09s all linear;
+			/*max-height: 0;
     	overflow: hidden;
     	-webkit-transition: max-height 0.8s ease-out;
 			-moz-transition: max-height 0.8s ease-out;
-			transition: max-height 0.8s ease-out;
-		}
-		:host.extended{
-			height: auto;
-			max-height: 300px;
-			-webkit-transition: max-height 0.8s ease-in;
-			-moz-transition: max-height 0.8s ease-in;
-			transition: max-height 0.8s ease-in;
-		}
+			transition: max-height 0.8s ease-out;*/
+		}		
 	</style>
-	<template>		
-		<content></content>
-	</template>
+	
   <script>
     Polymer({
       is: 'accordion-body',
@@ -72,18 +66,10 @@
       },
       extends: 'div',          
       watchExtended: function(newValue, oldValue) {
-      	if (newValue) {
-      		this.classList.add('extended');
-      	}else{
-      		this.classList.remove('extended');
-      	}
+      	this.hidden = !newValue;
       },
       toggle: function() { 
-      	if (this.extended) {
-      		this.extended = false;
-      	}else{
-      		this.extended = true;
-      	};     	
+    		this.extended = !this.extended;      
       }
     });
   </script>
